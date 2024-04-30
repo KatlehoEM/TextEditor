@@ -25,7 +25,7 @@ namespace TextEditor.Controllers
         // GET: Documents
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Documents.Include(d => d.User);
+            var applicationDbContext = _context.Documents.Include(d => d.User).Where(u => u.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier));
             return View(await applicationDbContext.ToListAsync());
         }
 

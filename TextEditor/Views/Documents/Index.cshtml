@@ -9,3 +9,16 @@
 <div class="d-flex justify-content-center align-items" style="width:150px;height:200px;background-color:lightgray;font-size:100px;">
     <a asp-action="Create" style="text-decoration:none;color:black">+</a>
 </div>
+<span style="font-weight:bold;">Black document</span>
+<hr/>
+<div class="row">
+    @foreach(var document in Model)
+    {
+        <div class="col-2">
+            <div class="d-flex justify-content-center align-items" style="width:150px;height:200px;background-color:lightblue;font-size:100px;">
+                <a asp-action="Edit" asp-route-id="@document.Id" style="text-decoration:none;color:black">📝</a>
+            </div>
+            <span style="font-weight:bold;">@document.Title</span>
+        </div>
+    }
+</div>
